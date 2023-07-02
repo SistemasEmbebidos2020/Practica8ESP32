@@ -6,7 +6,7 @@ bool emparejado = false;
 void setup()
 {
   Serial.begin(115200);
-  SerialBT.begin("ESP32_Master", true); // Nombre del dispositivo Bluetooth del maestro
+  SerialBT.begin("ESP32_Master", true); // Nombre del dispositivo Bluetooth del maestro el valor de true para activar master
   SerialBT.connect("ESP32_Esclavo");    // Nombre del dispositivo Bluetooth del esclavo
   Serial.println("ESP32 maestro iniciado");
 }
