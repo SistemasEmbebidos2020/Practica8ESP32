@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <BluetoothSerial.h>
-long ti = millis();
 BluetoothSerial SerialBT;
 bool emparejado = false;
 void setup()
