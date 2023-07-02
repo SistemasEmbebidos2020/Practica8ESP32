@@ -2,7 +2,6 @@
 #include <BluetoothSerial.h>
 bool emparejado = false;
 BluetoothSerial SerialBT;
-long ti = millis();
 void setup()
 {
   Serial.begin(115200);
