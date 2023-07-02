@@ -1,3 +1,7 @@
+/*
+Agregar en el archivo platformio.ini
+lib_deps = miguelbalboa/MFRC522@^1.4.10
+*/
 #include <Arduino.h>
 #include <SPI.h>
 #include <MFRC522.h>
