@@ -3,7 +3,7 @@
 BluetoothSerial SerialBT;
 bool emparejado = false;
 
-void conect_succes(){
+void connect_successful(){
   while (!emparejado)
   {
     if (!SerialBT.connected())
@@ -29,7 +29,7 @@ void setup()
 
 void loop()
 {
-  conect_succes();  //No saldrá de esta función hasta que se conecte correctamente con el dispositivo colocado en SerialBT.connect
+  connect_successful();  //No saldrá de esta función hasta que se conecte correctamente con el dispositivo colocado en SerialBT.connect
 
   if (SerialBT.available())
   {
