@@ -2,16 +2,8 @@
 #include <BluetoothSerial.h>
 BluetoothSerial SerialBT;
 bool emparejado = false;
-void setup()
-{
-  Serial.begin(115200);
-  SerialBT.begin("ESP32_Master", true); // Nombre del dispositivo Bluetooth del maestro el valor de true para activar master
-  SerialBT.connect("ESP32_Esclavo");    // Nombre del dispositivo Bluetooth del esclavo
-  Serial.println("ESP32 maestro iniciado");
-}
 
-void loop()
-{
+void conect_succes(){
   while (!emparejado)
   {
     if (!SerialBT.connected())
@@ -25,6 +17,19 @@ void loop()
       emparejado = true;
     }
   }
+}
+
+void setup()
+{
+  Serial.begin(115200);
+  SerialBT.begin("ESP32_Master", true); // Nombre del dispositivo Bluetooth del maestro el valor de true para activar master
+  SerialBT.connect("ESP32_Esclavo");    // Nombre del dispositivo Bluetooth del esclavo
+  Serial.println("ESP32 maestro iniciado");
+}
+
+void loop()
+{
+  conect_succes();  //No saldrá de esta función hasta que se conecte correctamente con el dispositivo colocado en SerialBT.connect
 
   if (SerialBT.available())
   {
