@@ -2,6 +2,23 @@
 #include <BluetoothSerial.h>
 bool emparejado = false;
 BluetoothSerial SerialBT;
+
+void conect_succes(){
+  while (!emparejado)
+  {
+    if (!SerialBT.connected())
+    {
+      Serial.println("Esperando emparejamiento...");
+      delay(1000);
+    }
+    else
+    {
+      Serial.println("Emparejado con el esclavo");
+      emparejado = true;
+    }
+  }
+}
+
 void setup()
 {
   Serial.begin(115200);
@@ -12,19 +29,7 @@ void setup()
 
 void loop()
 {
-  while (!emparejado)
-  {
-    if (!SerialBT.connected())
-    {
-      Serial.println("Esperando emparejamiento...");
-      delay(1000);
-    }
-    else
-    {
-      Serial.println("Emparejado con el maestro");
-      emparejado = true;
-    }
-  }
+  conect_succes();   //No saldrá de esta función hasta que se conecte correctamente con el dispositivo colocado en SerialBT.connect
 
   if (SerialBT.available())
   {
