@@ -6,6 +6,15 @@ lib_deps = miguelbalboa/MFRC522@^1.4.10
 #include <SPI.h>
 #include <MFRC522.h>
 
+/*  CONEXIONES DE PINES ENTRE ESP32 Y LECTOR RFID RC522
+Pines RFID  Pines ESP32
+sda          5
+sck          18
+MISO         19
+MOSI         23
+RST          2
+*/
+
 #define RST_PIN         2    // Pin de reinicio (RST) del lector RC522
 #define SS_PIN          5   // Pin SS (Slave Select) del lector RC522
 
